@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@eslint/js": "^9.22.0",
     "eslint": "^9.22.0",
@@ -19,5 +19,8 @@
     "eslint-plugin-prettier": "^5.2.3",
     "globals": "^16.0.0",
     "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }
