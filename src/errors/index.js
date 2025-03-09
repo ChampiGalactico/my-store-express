@@ -1,3 +1,6 @@
+import { ERROR } from "../constants/messages.js";
+import { BAD_REQUEST, NOT_FOUND, UNAUTHORIZED, } from "../constants/statusCodes.js";
+
 class AppError extends Error {
     constructor(message, statusCode) {
         super(message);
@@ -9,20 +12,26 @@ class AppError extends Error {
 }
 
 class NotFoundError extends AppError {
-    constructor(message = 'Recurso no encontrado') {
-        super(message, 404);
+    constructor(message = ERROR.generic.NOT_FOUND) {
+        super(message, NOT_FOUND);
     }
 }
 
 class ValidationError extends AppError {
-    constructor(message = 'Datos inválidos') {
-        super(message, 400);
+    constructor(message = ERROR.generic.INVALID_VALUES) {
+        super(message, BAD_REQUEST);
     }
 }
 
 class UnauthorizedError extends AppError {
-    constructor(message = 'No autorizado') {
-        super(message, 401);
+    constructor(message = ERROR.auth.UNAUTHORIZED) {
+        super(message, UNAUTHORIZED);
+    }
+}
+
+class InvalidPaginationError extends AppError {
+    constructor(message = ERROR.pagination.INVALID_VALUES){
+        super(message, BAD_REQUEST);
     }
 }
 
@@ -31,4 +40,5 @@ export {
     NotFoundError,
     ValidationError,
     UnauthorizedError,
+    InvalidPaginationError
 };
