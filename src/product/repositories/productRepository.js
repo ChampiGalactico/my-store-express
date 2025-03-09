@@ -6,8 +6,8 @@ const DB = PRODUCTS;
 
 class ProductRepository{
 
-    getAll(){
-        return DB;
+    getProducts(limit, offset){
+        return DB.slice(offset, offset + limit);
     }
 
     findById(id){
@@ -15,11 +15,10 @@ class ProductRepository{
         return product;
     }
 
-    getSome(amount){
-        const products = DB.slice(amount);
-        return products;
+    findByCategory(category, limit, offset){
+        const products = DB.filter(p => p.category === category);
+        return products.slice(offset, offset + limit);
     }
-
 }
 
 export default new ProductRepository();

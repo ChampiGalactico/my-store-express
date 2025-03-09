@@ -157,7 +157,7 @@ Los archivos de la carpeta repositories se encargarán de interactuar con la fue
 **ejemplo:**
 
 ```
-const db = require('../../../config/database'); // Conexión a la base de datos
+import db from '../../../config/database.js' // Conexión a la base de datos
 
 class UserRepository {
     async findById(id) {
@@ -174,7 +174,7 @@ class UserRepository {
     }
 }
 
-module.exports = new UserRepository();
+export default new UserRepository();
 ```
 
 ## Servicios (services)
@@ -189,7 +189,7 @@ Los archivos de esta carpeta contendrán la lógica de negocio y orquestarán op
 **ejemplo:**
 
 ```
-const userRepository = require('../repositories/userRepository');
+import userRepository from '../repositories/userRepository.js'
 
 class UserService {
     async getUserById(id) {
@@ -213,7 +213,7 @@ class UserService {
     }
 }
 
-module.exports = new UserService();
+export default new UserService();
 ```
 
 
@@ -229,7 +229,7 @@ Los controladores se encargan de manejar las solicitudes HTTP y devolver respues
 **ejemplo:**
 
 ```
-const userService = require('../services/userService');
+import userService from '../services/userService';
 
 class UserController {
     async getUser(req, res, next) {
@@ -251,7 +251,7 @@ class UserController {
     }
 }
 
-module.exports = new UserController();
+export default new UserController();
 ```
 
 ## Rutas (routes)
@@ -266,14 +266,16 @@ Los archivos de esta carpeta definirán las rutas de la API y las asociarán con
 
 ```
 // users/routes/userRoutes.js
-const express = require('express');
-const router = express.Router();
-const userController = require('../controllers/userController');
+import { Router } from 'express';
+
+import userController from '../controllers/userController.js';
+
+const router = Router();
 
 router.get('/:id', userController.getUser);
 router.post('/', userController.createUser);
 
-module.exports = router;
+export default router;
 ```
 
 En los casos en los que tengas más de un archivo en esta carpeta, tu carpeta routes podría lucir algo así:
@@ -288,17 +290,17 @@ users/
 y el index.js podría verse algo así algo así:
 
 ```
-const express = require('express');
-const publicRoutes = require('./user.public.router');
-const privateRoutes = require('./user.private.router');
+import { Router } from 'express';
+import publicRoutes from './user.public.router.js';
+import privateRoutes from './user.private.router';
 
-const router = express.Router();
+const router = Router();
 
 // Usar rutas públicas y privadas
 router.use('/public', publicRoutes);
 router.use('/private', privateRoutes);
 
-module.exports = router;
+export default router;
 ```
 
 ## Validadores (validators)
@@ -313,14 +315,14 @@ Los archivos de esta carpeta se encargarán de validar los datos de entrada ante
 
 ```
 // users/validators/userValidator.js
-const { body } = require('express-validator');
+import { body } from 'express-validator';
 
 const createUserValidator = [
     body('name').notEmpty().withMessage('El nombre es obligatorio'),
     body('email').isEmail().withMessage('El email no es válido'),
 ];
 
-module.exports = { createUserValidator }
+export { createUserValidator }
 ```
 
 ## Modelos
@@ -335,8 +337,8 @@ Los archivos de esta carpeta definirán la estructura de los datos (si usas una 
 
 ```
 // users/models/userModel.js
-const { DataTypes } = require('sequelize');
-const sequelize = require('../../../config/database');
+import { DataTypes } from 'sequelize';
+import sequelize from '../../../config/database';
 
 const User = sequelize.define('User', {
     name: {
@@ -350,7 +352,7 @@ const User = sequelize.define('User', {
     },
 });
 
-module.exports = User;
+export default User;
 ```
 
 ## Interfaces (interfaces)
@@ -401,8 +403,7 @@ Esta carpeta se encarga de contener las constantes que vayas a tener en tu aplic
 **Ejemplo:**
 
 ```
-export {
-    errors: {
+export const errors = {
         user: {
             NOT_FOUND: 'Usuario no encontrado',
             INVALID_EMAIL: 'El email no es válido',
@@ -419,6 +420,8 @@ export {
             BAD_REQUEST: 'Solicitud incorrecta',
         },
     },
+
+export const success = {
     success: {
         user: {
             CREATED: 'Usuario creado exitosamente',
@@ -426,7 +429,7 @@ export {
             DELETED: 'Usuario eliminado exitosamente',
         },
     },
-};
+}
 ```
 ## Configuración (confing)
 
@@ -435,28 +438,26 @@ Esta carpeta amacenará archivos de configuración que son necesarios para el fu
 **Ejemplo:**
 ```
 // config/database.js
-export {
-    development: {
+export const development = {
         username: 'root',
         password: 'password',
         database: 'myapp_dev',
         host: 'localhost',
         dialect: 'mysql',
-    },
-    production: {
+};
+
+export const production = {
         username: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         host: process.env.DB_HOST,
         dialect: 'mysql',
-    },
 };
 ```
 
 ```
 // config/env.js
-export {
-    port: process.env.PORT || 3000,
-    jwtSecret: process.env.JWT_SECRET || 'secret',
-};
+export const port = process.env.PORT || 3000,
+export const jwtSecret = process.env.JWT_SECRET || 'secret',
+
 ```

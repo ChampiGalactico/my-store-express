@@ -4,8 +4,8 @@ const DB = USERS;
 
 class UserRepository {
 
-    getAll() {
-        return DB;
+    getAll(limit, offset) {
+        return DB.slice(offset, limit + offset);
     }
 
     findById(userId) {
