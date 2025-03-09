@@ -428,7 +428,7 @@ export {
     },
 };
 ```
-## Configurción (confing)
+## Configuración (confing)
 
 Esta carpeta amacenará archivos de configuración que son necesarios para el funcionamiento de la aplicación. Estos archivos suelen contener valores que pueden variar según el entorno (desarrollo, producción, pruebas, etc.) o que son compartidos en toda la aplicación.
 
