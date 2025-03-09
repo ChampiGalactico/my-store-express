@@ -1,10 +1,10 @@
-#Validadores
+# Validadores
 ```Validar los datos de entrada antes de que lleguen al servicio.```
 
 _Responsabilidad:_
 
-    - Validar los datos antes de que lleguen al servicio.
-    - Asegurar que los datos cumplan con las reglas de negocio.io.
+- Validar los datos antes de que lleguen al servicio.
+- Asegurar que los datos cumplan con las reglas de negocio.io.
 
 _ejemplo:_
 

@@ -1,10 +1,10 @@
-#Rutas
+# Rutas
 ```Definir las rutas de la API y asociarlas con los controladores.```
 
 _Responsabilidad:_
 
-    - Definir las rutas de la API.
-    - Asociar rutas con controladores.
+- Definir las rutas de la API.
+- Asociar rutas con controladores.
 
 _ejemplo:_
 

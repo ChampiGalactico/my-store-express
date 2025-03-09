@@ -1,11 +1,11 @@
-#Repositorios
+# Repositorios
 ```Interactuar con la fuente de datos (base de datos, API, etc.).```
 
 _Responsabilidad:_
 
-    - Interactuar con la fuente de datos (base de datos, API externa, archivo, etc.).
-    - Ocultar los detalles de la fuente de datos (el servicio no necesita saber si usas MySQL, MongoDB, etc.).
-    - Proveer métodos específicos para acceder a los datos (por ejemplo, findById, create, update, delete).
+- Interactuar con la fuente de datos (base de datos, API externa, archivo, etc.).
+- Ocultar los detalles de la fuente de datos (el servicio no necesita saber si usas MySQL, MongoDB, etc.).
+- Proveer métodos específicos para acceder a los datos (por ejemplo, findById, create, update, delete).
 
 _ejemplo:_
 

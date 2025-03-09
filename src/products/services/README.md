@@ -1,11 +1,11 @@
-#Servicios
+# Servicios
 ```Contener la lógica de negocio y orquestar operaciones.```
 
 _Responsabilidad:_
 
-    - Contener la lógica de negocio.
-    - Orquestar las operaciones entre repositorios, validaciones, etc.
-    - No debe interactuar directamente con la base de datos (eso es responsabilidad del repositorio).
+- Contener la lógica de negocio.
+- Orquestar las operaciones entre repositorios, validaciones, etc.
+- No debe interactuar directamente con la base de datos (eso es responsabilidad del repositorio).
 
 _ejemplo:_
 

@@ -1,10 +1,10 @@
-#Modelos
+# Modelos
 ```Definir la estructura de los datos (si usas una base de datos).```
 
 _Responsabilidad:_
 
-    - Definir la estructura de los datos (si usas una base de datos).
-    - Mapear objetos de la aplicación a la base de datos (si usas un ORM como Sequelize o Mongoose).
+- Definir la estructura de los datos (si usas una base de datos).
+- Mapear objetos de la aplicación a la base de datos (si usas un ORM como Sequelize o Mongoose).
 
 _ejemplo:_
 

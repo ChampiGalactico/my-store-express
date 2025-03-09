@@ -1,11 +1,11 @@
-#Controladores
+# Controladores
 ```Los controladores se encargan de manejar las solicitudes HTTP y devolver respuestas```
 
 _Responsabilidad:_
 
-    - Manejar las solicitudes HTTP (GET, POST, PUT, DELETE, etc.).
-    - Devolver respuestas HTTP (JSON, HTML, etc.).
-    - No debe contener lógica de negocio.
+- Manejar las solicitudes HTTP (GET, POST, PUT, DELETE, etc.).
+- Devolver respuestas HTTP (JSON, HTML, etc.).
+- No debe contener lógica de negocio.
 
 _ejemplo:_
 
