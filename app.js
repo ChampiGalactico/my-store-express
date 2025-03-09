@@ -1,13 +1,13 @@
 import express from 'express';
-import productsRoutes from './src/product/routes/productRoutes.js';
-import userRoutes from './src/user/routes/userRoutes.js';
+import productRoutes from './src/product/index.js';
+import userRoutes from './src/user/index.js';
 import { AppError } from './src/errors/index.js'
 
 const APP = express();
 
 APP.use(express.json());
 
-APP.use('/api', productsRoutes);
+APP.use('/api', productRoutes);
 APP.use('/api', userRoutes);
 
 
