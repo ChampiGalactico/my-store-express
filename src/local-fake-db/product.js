@@ -13,6 +13,7 @@ function generate(){
       name: faker.commerce.productName(),
       price: parseInt(faker.commerce.price(), 10),
       description: faker.commerce.productDescription(),
+      category: faker.commerce.department(),
       image: faker.image.url()
       });
 
