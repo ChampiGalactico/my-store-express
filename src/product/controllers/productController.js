@@ -4,7 +4,6 @@ class ProductController {
   async getProducts(req, res, next) {
     try {
       const products = await productService.getAllProducts();
-      console.log("size->",products.length);
       res.json(products);
     } catch (error) {
       next(error);
