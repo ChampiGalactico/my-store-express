@@ -1,6 +1,6 @@
 # My store express
 
-My store express es un proyecto creado con el único fin de aprender cómo estructurar un proyecto de Nodejs con Express y entender el funcionamiento de express.
+My store express es un proyecto creado con el único fin de aprender cómo estructurar un proyecto de Nodejs con Express y entender el funcionamiento de express. Este proyecto es guiado por el curso de platzi [Curso de backend cond Node.js: API REST con express](https://platzi.com/cursos/backend-nodejs/), no obstante he cambiado significativamente la estructuración de este.
 
 # Express
 Express es un framework de Node.js que simplifica la creación de servidores web y APIs. Proporciona una capa de abstracción sobre las funcionalidades básicas de Node.js, permitiéndote manejar rutas, middlewares, solicitudes (requests) y respuestas (responses) de manera más sencilla.
