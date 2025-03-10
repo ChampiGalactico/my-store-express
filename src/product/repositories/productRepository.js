@@ -19,6 +19,10 @@ class ProductRepository{
         const products = DB.filter(p => p.category === category);
         return products.slice(offset, offset + limit);
     }
+
+    createProduct(product){
+        return DB.push(product);
+    }
 }
 
 export default new ProductRepository();

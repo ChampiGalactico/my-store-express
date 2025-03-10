@@ -6,6 +6,8 @@ import {
 import { NotFoundError } from '../../errors/index.js';
 import { ERROR } from '../../constants/messages.js';
 
+// usualmente los métodos son asíncronos, sin embargo, en este proyecto no lo estamos usando, por ahora
+
 class ProductService {
   async getProducts(query) {
     const limit = Number(query.limit) || DEFAULT_PAGINATION_LIMIT;
@@ -32,6 +34,13 @@ class ProductService {
     }
     return products;
   }
-}
+
+  async createProduct(producto){
+    // validación aquí o por middleware
+    const product = ProductRepository.createProduct(producto);
+    return product;
+  }
+
+} 
 
 export default new ProductService();

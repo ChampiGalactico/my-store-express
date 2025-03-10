@@ -6,7 +6,7 @@ function generate(){
 
   const products = [];
 
-  for (let i = 0; i < 100; i++){
+  for (let i = 0; i < 5; i++){
 
     products.push({
       id: faker.string.uuid(),

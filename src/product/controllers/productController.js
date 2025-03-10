@@ -1,3 +1,5 @@
+import { SUCCESS } from '../../constants/messages.js';
+import { CREATED } from '../../constants/statusCodes.js';
 import productService from '../services/productService.js';
 
 class ProductController {
@@ -29,6 +31,16 @@ class ProductController {
       const query = req.query;
       const products = await productService.getProductsByCategory(category, query);
       res.json(products);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async createProduct(req, res, next) {
+    try {
+      const body = req.body;
+      await productService.createProduct(body);
+      res.status(CREATED).json({message: SUCCESS.user.CREATED})
     } catch (error) {
       next(error);
     }
