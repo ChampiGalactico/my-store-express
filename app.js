@@ -18,7 +18,7 @@ APP.use((err, req, res, next) => {
             message: err.message,
         });
     }
-    res.status(500).json({ message: 'Algo salió mal' });
+    res.status(500).json({ message: err.message });
 });
 
 export default APP;

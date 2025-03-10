@@ -40,7 +40,7 @@ class ProductController {
     try {
       const body = req.body;
       await productService.createProduct(body);
-      res.status(CREATED).json({message: SUCCESS.user.CREATED})
+      res.status(CREATED).json({message: SUCCESS.product.CREATED})
     } catch (error) {
       next(error);
     }

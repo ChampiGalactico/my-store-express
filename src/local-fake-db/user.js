@@ -6,7 +6,7 @@ function generate() {
 
   const users = [];
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 5; i++) {
 
     users.push({
       id: faker.string.uuid(),

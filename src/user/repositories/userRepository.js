@@ -16,6 +16,10 @@ class UserRepository {
         return DB.find(user => user.username === username);
     }
 
+    createUser(user) {
+        return DB.push(user);    
+    }
+
 }
 
 export default new UserRepository();

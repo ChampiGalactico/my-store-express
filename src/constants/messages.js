@@ -32,4 +32,9 @@ export const SUCCESS = {
     UPDATED: 'Usuario actualizado exitosamente.',
     DELETED: 'Usuario eliminado exitosamente.',
   },
+  product: {
+    CREATED: 'Producto creado exitosamente.',
+    UPDATED: 'Producto actualizado exitosamente.',
+    DELETED: 'Producto eliminado exitosamente.',
+  },
 };

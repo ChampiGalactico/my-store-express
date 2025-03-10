@@ -28,6 +28,11 @@ class UserService {
         return user;
     }
 
+    createUser(body){
+        // validaciones
+        return UserRepository.createUser(body);
+    }
+
 }
 
 export default new UserService();
