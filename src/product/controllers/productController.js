@@ -1,5 +1,5 @@
 import { SUCCESS } from '../../constants/messages.js';
-import { CREATED } from '../../constants/statusCodes.js';
+import { CREATED, MODIFIED } from '../../constants/statusCodes.js';
 import productService from '../services/productService.js';
 
 class ProductController {
@@ -29,7 +29,10 @@ class ProductController {
     try {
       const { category } = req.params;
       const query = req.query;
-      const products = await productService.getProductsByCategory(category, query);
+      const products = await productService.getProductsByCategory(
+        category,
+        query,
+      );
       res.json(products);
     } catch (error) {
       next(error);
@@ -40,7 +43,18 @@ class ProductController {
     try {
       const body = req.body;
       await productService.createProduct(body);
-      res.status(CREATED).json({message: SUCCESS.product.CREATED})
+      res.status(CREATED).json({ message: SUCCESS.product.CREATED });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async updateProduct(req, res, next) {
+    try {
+      const body = req.body;
+      const { id } = req.params;
+      await productService.updateProduct(id, body);
+      res.status(MODIFIED).json({ message: SUCCESS.product.UPDATED });
     } catch (error) {
       next(error);
     }

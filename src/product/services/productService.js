@@ -35,12 +35,16 @@ class ProductService {
     return products;
   }
 
-  async createProduct(producto){
+  async createProduct(producto) {
     // validación aquí o por middleware
     const product = ProductRepository.createProduct(producto);
     return product;
   }
 
-} 
+  async updateProduct(id, changedProduct) {
+    const product = ProductRepository.updateProduct(id, changedProduct);
+    return product;
+  }
+}
 
 export default new ProductService();
