@@ -1,5 +1,5 @@
 import { SUCCESS } from '../../constants/messages.js';
-import { CREATED, MODIFIED } from '../../constants/statusCodes.js';
+import { CREATED, MODIFIED, OK } from '../../constants/statusCodes.js';
 import productService from '../services/productService.js';
 
 class ProductController {
@@ -55,6 +55,16 @@ class ProductController {
       const { id } = req.params;
       await productService.updateProduct(id, body);
       res.status(MODIFIED).json({ message: SUCCESS.product.UPDATED });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async deleteProduct(req, res, next) {
+    try {
+      const { id } = req.params;
+      await productService.deleteProduct(id);
+      res.status(OK).json({ message: SUCCESS.product.DELETED });
     } catch (error) {
       next(error);
     }

@@ -45,6 +45,11 @@ class ProductService {
     const product = ProductRepository.updateProduct(id, changedProduct);
     return product;
   }
+
+  async deleteProduct(id) {
+    const product = ProductRepository.deleteProduct(id);
+    return product;
+  }
 }
 
 export default new ProductService();

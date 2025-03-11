@@ -33,6 +33,14 @@ class ProductRepository {
     }
     return Object.assign(product, changedProduct);
   }
+
+  deleteProduct(id) {
+    const index = DB.findIndex((p) => p.id === id);
+    if (index === -1) {
+      throw new NotFoundError(ERROR.user.NOT_FOUND(id));
+    }
+    return DB.splice(index, 1);
+  }
 }
 
 export default new ProductRepository();
