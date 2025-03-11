@@ -1,5 +1,5 @@
 import { SUCCESS } from '../../constants/messages.js';
-import { CREATED, MODIFIED } from '../../constants/statusCodes.js';
+import { CREATED, MODIFIED, OK } from '../../constants/statusCodes.js';
 import UserService from '../services/userService.js';
 
 class UserController {
@@ -41,7 +41,7 @@ class UserController {
     try {
       const body = req.body;
       await UserService.createUser(body);
-      res.status(CREATED).json({message: SUCCESS.user.CREATED});
+      res.status(CREATED).json({ message: SUCCESS.user.CREATED });
     } catch (error) {
       next(error);
     }
@@ -52,7 +52,17 @@ class UserController {
       const body = req.body;
       const { id } = req.params;
       await UserService.updateUsername(id, body);
-      res.status(MODIFIED).json({message: SUCCESS.user.UPDATED});
+      res.status(MODIFIED).json({ message: SUCCESS.user.UPDATED });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async deleteUser(req, res, next) {
+    try {
+      const { id } = req.params;
+      await UserService.deleteUser(id);
+      res.status(OK).json({ message: SUCCESS.user.DELETED });
     } catch (error) {
       next(error);
     }
