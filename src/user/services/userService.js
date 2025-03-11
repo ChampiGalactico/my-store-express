@@ -33,6 +33,12 @@ class UserService {
         return UserRepository.createUser(body);
     }
 
+    updateUsername(id, body){
+        const { username } = body;
+        const modifiedUser = UserRepository.updateUsername(id, username);
+        return modifiedUser;
+    }
+
 }
 
 export default new UserService();

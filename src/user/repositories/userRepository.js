@@ -1,3 +1,5 @@
+import { ERROR } from '../../constants/messages.js';
+import { NotFoundError } from '../../errors/index.js';
 import USERS from '../../local-fake-db/user.js';
 
 const DB = USERS;
@@ -20,6 +22,14 @@ class UserRepository {
         return DB.push(user);    
     }
 
+    updateUsername(userId, username){
+        const user = this.findById(userId);
+        if (!user) {
+            throw new NotFoundError(ERROR.user.NOT_FOUND(userId));
+        }
+        user.username = username;
+        return user;
+    }
 }
 
 export default new UserRepository();
